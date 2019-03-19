@@ -1,0 +1,2 @@
+class AuthorityController < ApplicationController
+end

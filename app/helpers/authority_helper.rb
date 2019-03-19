@@ -1,0 +1,2 @@
+module AuthorityHelper
+end
