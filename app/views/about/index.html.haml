@@ -1,17 +1,6 @@
 .wrappar
-  - if notice != nil
-    %p.notice = notice
-  - if alert != nil
-    %p.alert = alert
+  = render "shared/header"
 
-  %header.fixed-top
-    .navbar.navbar-dark.header_color
-      .navbar-brand.heder_size
-        Practice
-      .btn.btn-outline-light.heder_btn_size
-        = link_to "signin",new_user_session_path
-      .btn.btn-outline-light.heder_btn_size
-        = link_to "signout",destroy_user_session_path,method: "DELETE"
   %main
     .image_main
       = image_tag('/rowing-898008_1920.jpg',class: "img-fluid")

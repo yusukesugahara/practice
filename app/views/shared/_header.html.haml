@@ -1,0 +1,10 @@
+%header.fixed-top
+  .navbar.navbar-dark.header_color
+    .navbar-brand.heder_size
+      Practice
+    - if user_signed_in?
+      .btn.btn-outline-light.heder_btn_size
+        = link_to "signout",destroy_user_session_path,method: "DELETE"
+    - else
+      .btn.btn-outline-light.heder_btn_size
+        = link_to "signin",new_user_session_path
