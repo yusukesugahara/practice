@@ -1,0 +1,64 @@
+
+html{
+  height: 100%;
+  width: 100%;
+}
+body{
+  height: 100%;
+  width: 100%;
+}
+.wrappar{
+  width: 100%;
+
+}
+.header_color{
+  background-color: rgba(105,105,105,0.8);
+}
+
+.heder_size{
+  font-size: 30px;
+}
+
+.heder_btn_size{
+  font-size: 15px;
+}
+
+.image_main{
+  height:100%;
+  width: 100%;
+  position: relative;
+}
+
+.image_text{
+  font-family:  "YuGothic","Yu Gothic","Meiryo","ヒラギノ角ゴ","sans-serif" ;
+  color: #fff;
+  position: absolute;
+  bottom: 10%;
+  left: 28%;
+  font-size: 60px;
+}
+
+.row{
+    margin-top: 50px;
+    margin-right:10px;
+    margin-left: 10px;
+}
+
+.row_images{
+  display:flex;
+  width: 100%;
+  margin: 0 5%;
+
+}
+
+.col-lg-4{
+  text-align: center;
+}
+
+.image_round{
+  text-align: center;
+  border-radius: 50%;
+  height: 140px;
+  width:140px;
+}
+

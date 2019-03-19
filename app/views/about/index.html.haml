@@ -1,12 +1,90 @@
-.header
-  .navbar.navbar-dark.bg-dark
-    .navbar-brand
-      Practice
-    .btn.btn-outline-light.btn-sm
-      signin
+.wrappar
+  - if notice != nil
+    %p.notice = notice
+  - if alert != nil
+    %p.alert = alert
 
-.main
-  .bg-secondary{alt:"Responsive image",}
+  %header.fixed-top
+    .navbar.navbar-dark.header_color
+      .navbar-brand.heder_size
+        Practice
+      .btn.btn-outline-light.heder_btn_size
+        = link_to "signin",new_user_session_path
+      .btn.btn-outline-light.heder_btn_size
+        = link_to "signout",destroy_user_session_path,method: "DELETE"
+  %main
+    .image_main
+      = image_tag('/rowing-898008_1920.jpg',class: "img-fluid")
+      .image_text
+        日々の練習をより戦略的に
+      .container.marketing
+
+    .row
+      .row_images
+        .col-lg-4
+          %title Placeholder
+          = image_tag("/start-1590051_1920.jpg",class: "image_round")
+          %text{:dy => ".3em", :fill => "#777", :x => "50%", :y => "50%"}
+          %h2 体力向上
+          %p これまでよりも効率的に体力づくり・身体能力の向上を行えます。戦略を立てることにより無駄なく行え、怪我の防止対策も考慮しながら行うことができます。
+          %p
+            %a.btn.btn-secondary{:href => "#", :role => "button"} View details »
+        .col-lg-4
+          %title Placeholder
+          = image_tag("/hand-3190204_1920.jpg",class: "image_round")
+          %text{:dy => ".3em", :fill => "#777", :x => "50%", :y => "50%"}
+          %h2 問題解決力
+          %p 自ら考え実行することによって、問題解決能力を身につけることができます。戦略思考を自然と身につけることができます。
+          %p
+            %a.btn.btn-secondary{:href => "#", :role => "button"} View details »
+        .col-lg-4
+          %title Placeholder
+          = image_tag("/hands-2847508_1920.jpg",class: "image_round")
+          %text{:dy => ".3em", :fill => "#777", :x => "50%", :y => "50%"}
+          %h2 コミュニケーション
+          %p コメントによるコミュニケーションを図ることができます。モチベーションアップへの取り組みや課題解決に向けたアドバイスを行うことができます。
+          %p
+            %a.btn.btn-secondary{:href => "#", :role => "button"} View details »
 
 
-.footer
+      %hr.featurette-divider/
+      .row.featurette
+        .col-md-7
+          %h2.featurette-heading
+            First featurette heading.
+            %span.text-muted It’ll blow your mind.
+          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+        .col-md-5
+          %svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto{"aria-label" => "Placeholder: 500x500", :focusable => "false", :height => "500", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "500", :xmlns => "http://www.w3.org/2000/svg"}
+            %title Placeholder
+            %rect{:fill => "#eee", :height => "100%", :width => "100%"}
+            %text{:dy => ".3em", :fill => "#aaa", :x => "50%", :y => "50%"} 500x500
+      %hr.featurette-divider/
+      .row.featurette
+        .col-md-7.order-md-2
+          %h2.featurette-heading
+            Oh yeah, it’s that good.
+            %span.text-muted See for yourself.
+          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+        .col-md-5.order-md-1
+          %svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto{"aria-label" => "Placeholder: 500x500", :focusable => "false", :height => "500", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "500", :xmlns => "http://www.w3.org/2000/svg"}
+            %title Placeholder
+            %rect{:fill => "#eee", :height => "100%", :width => "100%"}
+            %text{:dy => ".3em", :fill => "#aaa", :x => "50%", :y => "50%"} 500x500
+      %hr.featurette-divider/
+      .row.featurette
+        .col-md-7
+          %h2.featurette-heading
+            And lastly, this one.
+            %span.text-muted Checkmate.
+          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+        .col-md-5
+          %svg.bd-placeholder-img.bd-placeholder-img-lg.featurette-image.img-fluid.mx-auto{"aria-label" => "Placeholder: 500x500", :focusable => "false", :height => "500", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "500", :xmlns => "http://www.w3.org/2000/svg"}
+            %title Placeholder
+            %rect{:fill => "#eee", :height => "100%", :width => "100%"}
+            %text{:dy => ".3em", :fill => "#aaa", :x => "50%", :y => "50%"} 500x500
+      %hr.featurette-divider/
+
+
+
+  %footer
