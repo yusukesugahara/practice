@@ -19,7 +19,7 @@ class SquaresController < ApplicationController
   end
 
   def show
-    @square = Square.new
+    @square = Square.find(1)
     @squares = Square.all
   end
 
