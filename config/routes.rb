@@ -3,15 +3,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'about#index'
-  resources :about , only: [:index]
-  resources :user, only: :index
-  resources :group, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :authoritey, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :square, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :diary, only: [:index, :new, :create, :edit, :update, :destroy] do
-    resources :comment, only: [:create ,:destroy]
+  resources :abouts , only: [:index]
+  resources :users, only: :show
+  resources :groups, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :authorities, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :squares, only: [:new, :create, :edit, :update, :destroy, :show]
+  resources :diaries, only: [:index, :new, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:create ,:destroy]
   end
-  resources :plan, only: [:index, :new, :create, :edit, :update, :destroy]
-
-
+  resources :plans, only: [:index, :new, :create, :edit, :update, :destroy]
 end

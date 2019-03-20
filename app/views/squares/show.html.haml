@@ -1,0 +1,21 @@
+= render "shared/header"
+= render "shared/sub_header"
+
+
+
+
+
+.square
+  - box = ["one","two","three","four","zero","five","six","seven","eight"]
+  = form_for (@square) do |f|
+    - box.each do |num|
+      .square_parent{class: "suquare_#{num}"}
+        - box.each do |cnum|
+          .quare_child{class: "suquare_#{num}_#{cnum}"}
+            - if num == "zero" then
+              = f.text_area :num, placeholder: @square[:num]
+            - elsif cnum == "zero" then
+              = @square[:num]
+            - else
+              - clumn = "#{num}_#{cnum}"
+              = f.text_area :clumn, placeholder: @square[:clumn]

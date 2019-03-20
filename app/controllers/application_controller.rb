@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    mypage_root_path # ログイン後に遷移するpathを設定
+    user_path(current_user)
   end
 
   def after_sign_out_path_for(resource)
-    new_user_session_path # ログアウト後に遷移するpathを設定
+    about_index_path
   end
 
 end

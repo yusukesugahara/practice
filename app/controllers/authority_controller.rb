@@ -1,2 +1,0 @@
-class AuthorityController < ApplicationController
-end
