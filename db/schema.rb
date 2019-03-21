@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190319053937) do
+ActiveRecord::Schema.define(version: 20190321012621) do
 
   create_table "authorities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -51,12 +51,6 @@ ActiveRecord::Schema.define(version: 20190319053937) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date     "date",       null: false
     t.integer  "number"
@@ -68,7 +62,6 @@ ActiveRecord::Schema.define(version: 20190319053937) do
 
   create_table "squares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "group_id"
     t.string   "zero"
     t.string   "one"
     t.string   "two"
@@ -144,16 +137,15 @@ ActiveRecord::Schema.define(version: 20190319053937) do
     t.string   "eight_eight"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["group_id"], name: "index_squares_on_group_id", using: :btree
+    t.string   "name"
     t.index ["user_id"], name: "index_squares_on_user_id", using: :btree
   end
 
   create_table "user_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.integer  "authority",  default: 1, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "group_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_user_groups_on_group_id", using: :btree
     t.index ["user_id"], name: "index_user_groups_on_user_id", using: :btree
   end
@@ -180,7 +172,6 @@ ActiveRecord::Schema.define(version: 20190319053937) do
   add_foreign_key "diaries", "squares"
   add_foreign_key "diaries", "users"
   add_foreign_key "plans", "groups"
-  add_foreign_key "squares", "groups"
   add_foreign_key "squares", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"

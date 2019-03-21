@@ -1,3 +1,20 @@
 // Place all the styles related to the plans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.plans{
+
+}
+
+.plan_zone{
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+}
+
+.plan{
+  display: inline-block;
+  min-height: 400px;
+  width:300px;
+
+}

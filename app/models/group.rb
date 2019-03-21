@@ -4,5 +4,4 @@ class Group < ApplicationRecord
 
   has_many :authoritys
 
-  has_many :squares
 end

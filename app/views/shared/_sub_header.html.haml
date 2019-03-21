@@ -1,7 +1,7 @@
 %nav.navbar.navbar-dark.bg-dark.mypage_header
   .pull-right
-    = link_to "目標管理", "/squares/#{current_user.id}",{class: "ml-3 header_btn_color"}
-    = link_to "予定", "/square/#{current_user.id}",{class: "ml-3 header_btn_color"}
+    = link_to "目標管理", "/squares",{class: "ml-3 header_btn_color"}
+    = link_to "予定", plans_path,{class: "ml-3 header_btn_color"}
     = link_to "diary", "/square/#{current_user.id}",{class: "ml-3 header_btn_color"}
   .pull-left
     = link_to "グループ管理", "/square/#{current_user.id}",{class: "mr-3 header_btn_color"}

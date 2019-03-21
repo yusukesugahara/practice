@@ -1,3 +1,58 @@
 // Place all the styles related to the squares controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin size($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.sidebar__dates{
+  float: right;
+}
+
+.sidebar-date{
+  font-size: 5px;
+
+}
+
+.sidebar_link{
+  text-decoration: none;
+}
+
+.square__main{
+  @include size(1000px,1000px);
+  margin: 0 auto;
+
+  &--sidebar{
+    @include size(296px,auto);
+    margin: 10px;
+    float: left;
+  }
+  &--square{
+    @include size(785px,auto);
+    margin: 10px;
+    float: right;
+
+  }
+}
+
+
+.square{
+  height: auto;
+  width: 643px;
+}
+
+
+.square_parent{
+  @include size(213px,214px);
+  float: left;
+  border:solid 2px gray;
+}
+
+.square_child{
+  border: none;
+  outline: solid 1px gray;
+  @include size(70px,70px);
+  float: left;
+  resize: none;
+}
