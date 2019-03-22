@@ -69,6 +69,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (2.0.0)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -229,6 +232,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   devise
+  devise_invitable
   erb2haml
   haml-rails
   jbuilder (~> 2.5)
