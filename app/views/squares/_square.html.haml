@@ -1,24 +1,21 @@
-= link_to "新規作成", new_square_path
+- box = ["one","two","three","four","zero","five","six","seven","eight"]
 
-.square
-  作成日:
-  = @square.created_at.strftime('%Y/%m/%d')
-  更新日:
-  = @square.updated_at.strftime('%Y/%m/%d')
-  - box = ["one","two","three","four","zero","five","six","seven","eight"]
-  = form_for @square do |f|
-    name:
-    = f.text_field("name" , placeholder: "#{@square.name}")
-    %br
-    - box.each do |num|
-      .square_parent{class: "suquare_#{num}"}
-        - box.each do |cnum|
-          .square_child{class: "suquare_#{num}_#{cnum}"}
-            - if num == "zero" then
-              = f.text_area("#{cnum}", placeholder: @square.send(cnum),class: "square_child")
-            - elsif cnum == "zero" then
-              = @square.send(num)
-            - else
-              - clumn = "#{num}_#{cnum}"
-              = f.text_area("#{clumn}", placeholder: @square.send(num+"_"+cnum), class: "square_child")
-    = f.submit "保存",class: "btn btn-danger"
+= form_for @square do |f|
+  name:
+  = f.text_field("name" , placeholder: "#{@square.name}")
+  %br
+  - box.each do |num|
+    .square_parent{class: "suquare_#{num}"}
+      - box.each do |cnum|
+        .square_child{class: "suquare_#{num}_#{cnum}"}
+          - if num == "zero" then
+            = f.text_area("#{cnum}", placeholder: @square.send(cnum),class: "square_child")
+          - elsif cnum == "zero" then
+            = @square.send(num)
+          - else
+            - clumn = "#{num}_#{cnum}"
+            = f.text_area("#{clumn}", placeholder: @square.send(num+"_"+cnum), class: "square_child")
+  = f.submit "保存",class: "btn btn-danger"
+  - unless @square.id.nil?
+    = link_to "削除","/squares/#{@square.id}",method: 'delete',class: "btn btn-danger"
+    = link_to "新規作成", new_square_path,class: "btn btn-danger"

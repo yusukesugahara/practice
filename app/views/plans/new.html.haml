@@ -1,0 +1,16 @@
+= render "shared/header"
+= render "shared/sub_header"
+
+= form_for @plan do |f|
+  .card.plan
+    .card-body
+      %h5.card-title
+        = f.label "名前"
+        = f.text_field :name ,placeholder: "名前"
+      %h6.card-subtitle.mb-2.text-muted
+        = f.label "日付"
+        = f.text_field :date, placeholder: "年/月/日"
+      %p.card-text
+        = f.label "メニュー"
+        = f.text_area :text, placeholder: "text"
+    =f.submit "送信",action: "/plans",method: :post

@@ -1,11 +1,10 @@
 .wrappar
-  %header.fixed-top
-    .navbar.navbar-dark.header_color
-      .navbar-brand.heder_size
-        Practice
-      - if user_signed_in?
-        .btn.btn-outline-light.header_btn
-          = link_to "signout",destroy_user_session_path,method: "DELETE",class: "header_btn_color"
-      - else
-        .btn.btn-outline-light.header_btn
-          = link_to "signin",new_user_session_path, class: ".header_btn_color"
+  .header
+    .header__title
+      Practice
+    - if user_signed_in?
+      .header__button
+        = link_to "signout",destroy_user_session_path,method: "delete"
+    - else
+      .header__button
+        = link_to "signin",new_user_session_path

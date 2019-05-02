@@ -1,0 +1,13 @@
+= render "shared/header"
+= render "shared/sub_header"
+
+
+= form_for [@plan,@diary] do |f|
+  .card.plan
+    .card-body
+      %p.card-text
+        = f.collection_select :square_id, Square.where(user_id: current_user.id),:id ,:name
+        = f.label "日記内容"
+        = f.text_area :text, placeholder: "text"
+
+    =f.submit "送信",action: "/diaries",method: :post

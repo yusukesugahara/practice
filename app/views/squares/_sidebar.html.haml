@@ -1,16 +1,20 @@
 .sidebar
-  .card.m-2{ style: "width: 18rem;"}
-    .card-header
-      Featured
-    %ul.list-group
-      - @squares.each do |square|
-        = link_to(square_path(square),class: "sidebar_link") do
-          %li.list-group-item.sidebar_link
-            = square.name
-            .sidebar__dates.sidebar_link
-              .sidebar__date--create.sidebar-date
-                created:
-                = square.created_at.strftime('%Y/%m/%d')
-              .sidebar__date--update.sidebar-date
-                updated:
-                = square.updated_at.strftime('%Y/%m/%d')
+  = link_to(new_square_path) do
+    .sidebar__button
+      新規作成
+  - unless @square.id.nil? then
+    = link_to("/squares/#{@square.id}",method: 'delete') do
+      .sidebar__button
+        削除
+  .sidebar__title
+    Featured
+  .sidebar__list
+    - @squares.each do |square|
+      = link_to(square_path(square),class: "sidebar__link") do
+        .sidebar__link--title
+          = square.name
+        .sidebar__dates
+          .sidebar__date--create
+            = timestamp_created(square)
+          .sidebar__date--update
+            = timestamp_updated(square)

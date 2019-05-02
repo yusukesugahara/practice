@@ -6,6 +6,9 @@
   width: $width;
 }
 
+.sidebar{
+  z-index: -1;
+}
 .sidebar__dates{
   float: right;
 }
@@ -20,18 +23,16 @@
 }
 
 .square__main{
-  @include size(1000px,1000px);
   margin: 0 auto;
+  display: flex;
 
   &--sidebar{
     @include size(296px,auto);
-    margin: 10px;
-    float: left;
+    z-index: 0;
   }
   &--square{
     @include size(785px,auto);
     margin: 10px;
-    float: right;
 
   }
 }

@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :authorities, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :squares
-  resources :diaries, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :diaries, only: [:index, :edit, :update, :destroy] do
     resources :comments, only: [:create ,:destroy]
   end
-  resources :plans, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :plans, only: [:index, :new, :create, :edit, :update, :destroy] do
+   resources :diaries, only: [:new, :create]
+  end
 end

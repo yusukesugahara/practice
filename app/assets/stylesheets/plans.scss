@@ -3,18 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .plans{
-
-}
-
-.plan_zone{
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
+    display: flex;
+  &__main{
+    margin: 20px;
+  }
+  &__zone{
+  }
 }
 
 .plan{
-  display: inline-block;
   min-height: 400px;
   width:300px;
-
+  float: left;
 }
