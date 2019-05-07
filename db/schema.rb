@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190321120926) do
+
+ActiveRecord::Schema.define(version: 20190504075248) do
 
   create_table "authorities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -33,13 +34,11 @@ ActiveRecord::Schema.define(version: 20190321120926) do
 
   create_table "diaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                  null: false
-    t.integer  "group_id",                 null: false
     t.integer  "square_id"
     t.integer  "plan_id"
     t.text     "text",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["group_id"], name: "index_diaries_on_group_id", using: :btree
     t.index ["plan_id"], name: "index_diaries_on_plan_id", using: :btree
     t.index ["square_id"], name: "index_diaries_on_square_id", using: :btree
     t.index ["user_id"], name: "index_diaries_on_user_id", using: :btree
@@ -52,16 +51,18 @@ ActiveRecord::Schema.define(version: 20190321120926) do
   end
 
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "date",       null: false
-    t.integer  "number"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_plans_on_group_id", using: :btree
+    t.integer  "user_id"
+    t.date     "date"
+    t.string   "name"
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_plans_on_user_id", using: :btree
   end
 
   create_table "squares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
+    t.string   "name"
     t.string   "zero"
     t.string   "one"
     t.string   "two"
@@ -137,13 +138,12 @@ ActiveRecord::Schema.define(version: 20190321120926) do
     t.string   "eight_eight"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "name"
     t.index ["user_id"], name: "index_squares_on_user_id", using: :btree
   end
 
   create_table "user_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "group_id",   null: false
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
+    t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_user_groups_on_group_id", using: :btree
@@ -175,15 +175,12 @@ ActiveRecord::Schema.define(version: 20190321120926) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "authorities", "groups"
-  add_foreign_key "authorities", "users"
   add_foreign_key "comments", "diaries"
   add_foreign_key "comments", "users"
-  add_foreign_key "diaries", "groups"
   add_foreign_key "diaries", "plans"
   add_foreign_key "diaries", "squares"
   add_foreign_key "diaries", "users"
-  add_foreign_key "plans", "groups"
+  add_foreign_key "plans", "users"
   add_foreign_key "squares", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"

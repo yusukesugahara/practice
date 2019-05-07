@@ -5,10 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          invite_for: 24.hours
 
-  has_many :user_groups
-  has_many :groups, through: :user_groups
-
-  has_many :authoritys
-
   has_many :squares
+  has_many :plan
+  has_many :groups, through: :user_groups
+  has_many :user_groups
 end

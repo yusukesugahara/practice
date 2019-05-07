@@ -1,9 +1,10 @@
 class SquaresController < ApplicationController
   before_action :squares_set
-
+  before_action :authenticate_user!
 
   def index
     @square = @squares.last
+    redirect_to action: 'new' if @square.nil?
   end
 
   def new
@@ -11,8 +12,8 @@ class SquaresController < ApplicationController
   end
 
   def create
-    Square.create(square_params)
-    redirect_to "/squares/#{current_user.id}"
+    square = Square.create(square_params)
+    redirect_to "/squares/#{square.id}"
   end
 
   def edit
@@ -23,16 +24,20 @@ class SquaresController < ApplicationController
     square = Square.find(params[:id])
     square.update(square_params)
     redirect_to "/squares/#{params[:id]}"
-
   end
 
-  def destory
-
+  def destroy
+    square = Square.find(params[:id])
+    if current_user.id == square.user_id
+      square.destroy
+      redirect_to squares_path
+    else
+      redirect_to root_path
+    end
   end
 
   def show
     @square = Square.find(params[:id])
-
   end
 
   private

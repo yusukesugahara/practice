@@ -2,7 +2,7 @@ class CreateSquares < ActiveRecord::Migration[5.0]
   def change
     create_table :squares do |t|
       t.references :user, foreign_key: true,null:true
-      t.references :group, foreign_key: true,null:true
+      t.string :name
       t.string :zero
       t.string :one
       t.string :two

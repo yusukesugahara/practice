@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   root 'abouts#index'
   resources :abouts , only: [:index]
   resources :users, only: :show
-  resources :groups, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :groups
   resources :authorities, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :squares
-  resources :diaries, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :diaries, only: [:index, :edit, :update, :destroy] do
     resources :comments, only: [:create ,:destroy]
   end
-  resources :plans, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :plans do
+   resources :diaries, only: [:new, :create]
+  end
 end

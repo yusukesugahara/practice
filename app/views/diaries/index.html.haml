@@ -1,0 +1,24 @@
+= render "shared/header"
+= render "shared/sub_header"
+
+.diary
+  .side_bar
+    .side_bar__title
+      日記一覧
+    .side_bar__list
+      - @diaries.each do |diary|
+        = link_to("#diary__#{diary.id}",class: "side_bar__link") do
+          .side_bar__link--title
+            = diary.plan.name
+          .side_bar__dates
+            .side_bar__date--create
+              = timestamp_created(diary)
+            .side_bar__date--update
+              = timestamp_updated(diary)
+
+  .diary__cards
+    = render @diaries
+
+
+
+

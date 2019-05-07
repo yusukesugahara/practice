@@ -1,0 +1,14 @@
+.group__new
+  .group__new--title
+    - if @group.id.nil?
+      グループの新規登録
+    - else
+      グループ編集
+  = form_for @group do |f|
+    .group__new--name
+      = f.text_field :name,placeholder: "グループ名を入力してください",class: "group__new--name-input"
+      = f.hidden_field :user_ids,value: current_user.id
+    .group__new--submit
+      = f.submit "送信",class: "group__new--submit-button"
+
+

@@ -1,0 +1,24 @@
+.plan__card
+  .plan__card--body
+    .plan__card--title
+      = plan.name
+    .plan__card--date
+      = plan.date
+    .plan__card--text
+      .plan__card--text-title
+        練習メニュー
+      .plan__card--text-text
+        = plan.text
+  .plan__card--buttons
+    = link_to new_plan_diary_path(plan) do
+      .plan__card--button
+        日記作成
+    - if plan.diaries.length == 0 then
+      = link_to "/plans/#{plan.id}",method: "delete" do
+        .plan__card--button
+          削除
+    - else
+      = link_to plan_path(plan) do
+        .plan__card--button
+          日記一覧
+          = plan.diaries.length
