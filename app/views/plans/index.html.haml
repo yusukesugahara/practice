@@ -2,27 +2,24 @@
 = render "shared/sub_header"
 
 .plans
-
-  .sidebar
-    = link_to(new_plan_path) do
-      .sidebar__button
+  .side_bar
+    = link_to new_plan_path do
+      .side_bar__button
         新規作成
-    .sidebar__title
-      Featured
-    .sidebar__list
-      - @plans.each do |plan|
-        = link_to("",class: "sidebar__link") do
-          .sidebar__link--title
-            = plan.name
-          .sidebar__dates
-            .sidebar__date--create
-              = timestamp_created(plan)
-            .sidebar__date--update
-              = timestamp_updated(plan)
+    .side_bar__title
+      予定一覧
+    .side_bar__list
+      - if !@plans.length.nil?
+        - @plans.each do |plan|
+          = link_to("",class: "side_bar__link") do
+            .side_bar__link--title
+              = plan.name
+            .side_bar__dates
+              .side_bar__date--create
+                = timestamp_created(plan)
+              .side_bar__date--update
+                = timestamp_updated(plan)
 
   - if !@plans.nil?
-    .plans__main
-      .plans__zone
-        = render @plans
-
-
+    .plans__zone
+      = render @plans

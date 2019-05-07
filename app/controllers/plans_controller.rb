@@ -32,6 +32,9 @@ class PlansController < ApplicationController
   end
 
   def show
+    @plan = Plan.find(params[:id])
+    @diaries = @plan.diaries.order(created_at: :desc)
+    @comment = Comment.new
   end
 
   private

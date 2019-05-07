@@ -2,19 +2,20 @@
 
 = form_for @square do |f|
   name:
-  = f.text_field("name" , placeholder: "#{@square.name}")
+  = f.text_field("name" , placeholder: "#{@square.name}", class: "square__name")
   %br
   - box.each do |num|
     .square_parent{class: "suquare_#{num}"}
       - box.each do |cnum|
-        .square_child{class: "suquare_#{num}_#{cnum}"}
+        .square_child{class: "square_#{num}_#{cnum}"}
           - if num == "zero" then
-            = f.text_area("#{cnum}", placeholder: @square.send(cnum),class: "square_child")
+            = f.text_area("#{cnum}", placeholder: @square.send(cnum),class: "square_child-input")
           - elsif cnum == "zero" then
-            = @square.send(num)
+            .square_child-text
+              = @square.send(num)
           - else
             - clumn = "#{num}_#{cnum}"
-            = f.text_area("#{clumn}", placeholder: @square.send(num+"_"+cnum), class: "square_child")
+            = f.text_area("#{clumn}", placeholder: @square.send(num+"_"+cnum), class: "square_child-input")
   = f.submit "保存",class: "btn btn-danger"
   - unless @square.id.nil?
     = link_to "削除","/squares/#{@square.id}",method: 'delete',class: "btn btn-danger"

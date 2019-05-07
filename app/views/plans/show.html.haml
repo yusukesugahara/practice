@@ -1,0 +1,47 @@
+= render "shared/header"
+= render "shared/sub_header"
+
+.plans
+  .side_bar
+    = link_to new_plan_path do
+      .side_bar__button
+        新規作成
+    .side_bar__title
+      日記一覧
+    .side_bar__list
+      - @diaries.each do |diary|
+        = link_to("",class: "side_bar__link") do
+          .side_bar__link--title
+            = diary.user.email
+          .side_bar__dates
+            .side_bar__date--create
+              = timestamp_created(diary)
+            .side_bar__date--update
+              = timestamp_updated(diary)
+
+    .plan_show__card
+      .plan_show__card--body
+        .plan_show__card--title
+          = @plan.name
+        .plan_show__card--date
+          = @plan.date
+        .plan_show__card--text
+          .plan_show__card--text-title
+            練習メニュー
+          .plan_show__card--text-text
+            = @plan.text
+      .plan_show__card--buttons
+        = link_to new_plan_diary_path(@plan) do
+          .plan_show__card--button
+            日記作成
+        - if @plan.diaries.length == 0 then
+          = link_to "/plans/#{@plan.id}",method: "delete" do
+            .plan_show__card--button
+              削除
+        - else
+          = link_to plan_path(@plan) do
+            .plan_show__card--button
+              日記一覧
+
+  .diary__cards
+    = render partial:'diaries/diary', collection: @diaries

@@ -1,0 +1,8 @@
+.side_bar
+  = link_to(new_group_path) do
+    .side_bar__button
+      新規作成
+  - unless @group.id.nil?
+    = link_to(edit_group_path(@group.id))do
+      .side_bar__button
+        編集

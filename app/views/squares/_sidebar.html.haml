@@ -1,20 +1,21 @@
-.sidebar
+.side_bar
   = link_to(new_square_path) do
-    .sidebar__button
+    .side_bar__button
       新規作成
   - unless @square.id.nil? then
     = link_to("/squares/#{@square.id}",method: 'delete') do
-      .sidebar__button
+      .side_bar__button
         削除
-  .sidebar__title
-    Featured
-  .sidebar__list
-    - @squares.each do |square|
-      = link_to(square_path(square),class: "sidebar__link") do
-        .sidebar__link--title
-          = square.name
-        .sidebar__dates
-          .sidebar__date--create
-            = timestamp_created(square)
-          .sidebar__date--update
-            = timestamp_updated(square)
+  - if @squares.length != 0 then
+    .side_bar__title
+      目標一覧
+    .side_bar__list
+      - @squares.each do |square|
+        = link_to(square_path(square),class: "side_bar__link") do
+          .side_bar__link--title
+            = square.name
+          .side_bar__dates
+            .side_bar__date--create
+              = timestamp_created(square)
+            .side_bar__date--update
+              = timestamp_updated(square)

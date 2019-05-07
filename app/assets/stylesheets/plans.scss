@@ -1,18 +1,138 @@
-// Place all the styles related to the plans controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin size($height,$width){
+  height: $height;
+  width: $width;
+}
+
+a:hover{
+  text-decoration: none;
+}
 
 .plans{
     display: flex;
-  &__main{
-    margin: 20px;
-  }
+    @include size(auto,auto);
   &__zone{
+    margin: 20px;
   }
 }
 
-.plan{
-  min-height: 400px;
-  width:300px;
+.plan__card{
   float: left;
+  @include size(360px,260px);
+  padding: 20px;
+  margin: 0 8px 8px 0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  .plan__card--body{
+    @include size(270px,auto);
+  }
+  .plan__card--title{
+    font-size: 25px;
+  }
+  .plan__card--date{
+    font-size: 16px;
+    color: #ccc;
+  }
+  .plan__card--text{
+    &-title{
+
+    }
+    &-text{
+      padding: 2px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      height: 180px;
+    }
+  }
+  .plan__card--buttons{
+    @include size(48px,218px);
+    display: flex;
+  }
+  .plan__card--button{
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    margin:  10px 10px 0 0;
+    color: #fff;
+    background-color: #dc3545;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+.plan__new{
+  .plan__new--form{
+    margin: 20px auto;
+    @include size(370px,260px);
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  .plan__new--title{
+    &-input{
+      border-radius: 4px;
+      border: 1px solid #337ab7;
+    }
+  }
+  .plan__new--date{
+    &-input{
+      border-radius: 4px;
+      border: 1px solid #337ab7;
+    }
+  }
+  .plan__new--menu{
+    &-input{
+      @include size(200px,200px);
+      border-radius: 4px;
+      border: 1px solid #337ab7;
+    }
+  }
+  .plan__new--submit{
+    margin-bottom: 8px;
+    border-radius: 4px;
+    height: 32px;
+    border: 1px solid #337ab7;
+    background-color: #337ab7;
+    color: #fff;
+  }
+}
+
+.plan_show__card{
+  @include size(360px,244px);
+  padding: 20px;
+  margin: 10px 8px 8px 0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  &--body{
+    @include size(270px,auto);
+  }
+  &--title{
+    font-size: 25px;
+  }
+  &--date{
+    font-size: 16px;
+    color: #ccc;
+  }
+  &--text{
+    &-title{
+
+    }
+    &-text{
+      padding: 2px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      height: 180px;
+    }
+  }
+  &--buttons{
+    @include size(48px,218px);
+    display: flex;
+  }
+  &--button{
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    margin:  10px 10px 0 0;
+    color: #fff;
+    background-color: #dc3545;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
 }

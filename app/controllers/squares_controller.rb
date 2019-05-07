@@ -29,7 +29,7 @@ class SquaresController < ApplicationController
   def destroy
     square = Square.find(params[:id])
     if current_user.id == square.user_id
-      square.delete
+      square.destroy
       redirect_to squares_path
     else
       redirect_to root_path

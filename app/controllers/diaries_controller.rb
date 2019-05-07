@@ -4,7 +4,8 @@ class DiariesController < ApplicationController
   before_action :diary_set, only: [:update,:destoy]
 
   def index
-    @diaries = Diary.where(user_id: current_user.id)
+    @diaries = Diary.where(user_id: current_user.id).order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def new
@@ -13,10 +14,9 @@ class DiariesController < ApplicationController
   end
 
   def create
-    binding.pry
     diary = Diary.new(diary_params)
     if diary.user_id == current_user.id
-      Diary.crate(diary_params)
+      Diary.create(diary_params)
     end
     redirect_to plans_path
   end
@@ -29,11 +29,16 @@ class DiariesController < ApplicationController
     diary.create
   end
 
-  def destory
-    diary.destory
+  def destroy
+    diary = Diary.find(params[:id])
+    if diary.user_id == current_user.id
+      diary.destroy
+    end
+    redirect_to action: :index
   end
 
   def show
+    @diary.find(params[:id])
   end
 
   private

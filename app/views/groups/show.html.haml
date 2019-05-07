@@ -1,0 +1,19 @@
+= render "shared/header"
+= render "shared/sub_header"
+
+.group
+  = render "group_sidebar"
+  .group__show
+    .group__show--title
+      グループ情報
+    .group__show--sub-title
+      グループ名
+    .group__show--name
+
+      = @group.name
+    .group__show--sub-title
+      ユーザー
+    .group__show--user
+      - @group.users.each do |user|
+        ・
+        = user.email

@@ -1,0 +1,40 @@
+.diary__card_body
+  .diary__card{id: "diary__#{diary.id}"}
+    .diary__card--body
+      .diary__title
+        = diary.plan.name
+        <
+        diary.user.email
+        >
+      .diary__text
+        .diary__plan--title
+          練習メニュー
+        .diary__plan--text
+          = diary.plan.text
+        .diary__diary--title
+          練習日誌
+        .diary__diary--text
+          = diary.text
+    .diary__card--buttons
+      = link_to edit_diary_path(diary) do
+        .diary__card--button
+          編集する
+      = link_to "/diaries/#{diary.id}",method: "delete" do
+        .diary__card--button
+          削除する
+      .diary__card--button.diary__card--comment-button{value: diary.id}
+        コメント
+        = diary.comments.length
+  .diary__comment{id: "comments_#{diary.id}"}
+    - diary.comments.each do |comment|
+      .diary__comment--box
+        .diary__comment--name
+          = comment.user.email
+        .diary__comment--text
+          = comment.text
+        %hr.diary__comment--line
+    .diary__comment--create
+      = form_for [diary,@comment] do |f|
+        = f.text_area :text, class: "diary__comment--text-input", placeholder: "コメント入力欄"
+        %br
+        = f.submit "送信", class: "diary__comment--submit"

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :squares
-  has_many :users
   has_many :plan
+  has_many :groups, through: :user_groups
+  has_many :user_groups
 end
