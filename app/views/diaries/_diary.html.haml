@@ -32,6 +32,8 @@
           = comment.user.email
         .diary__comment--text
           = comment.text
+        .diary__comment--destroy
+          = link_to "削除" , diary_comment_path(diary,comment),method: "delete"
         %hr.diary__comment--line
     .diary__comment--create
       = form_for [diary,@comment] do |f|

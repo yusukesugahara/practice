@@ -7,6 +7,15 @@ class CommentsController < ApplicationController
     end
     redirect_to diaries_path
   end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    if comment.user_id == current_user.id
+      comment.destroy
+    end
+    redirect_to diaries_path
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id,diary_id: params[:diary_id])
