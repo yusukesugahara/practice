@@ -34,6 +34,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'carrierwave'
 gem 'devise'
+gem 'devise_invitable'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
