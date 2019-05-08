@@ -4,7 +4,7 @@
       .diary__title
         = diary.plan.name
         <
-        diary.user.email
+        = diary.user.nickname
         >
       .diary__text
         .diary__plan--title
@@ -30,7 +30,7 @@
       - diary.comments.each do |comment|
         .diary__comment--box{class: "diary__comment--box-#{comment.id}"}
           .diary__comment--name
-            = comment.user.email
+            = comment.user.nickname
           .diary__comment--text
             = comment.text
           .diary__comment--destroy{value: "/diaries/#{diary.id}/comments/#{comment.id}"}
