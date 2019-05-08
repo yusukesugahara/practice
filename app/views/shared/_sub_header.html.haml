@@ -7,6 +7,6 @@
       = link_to "group", new_group_path,{class: "ml-3 header_btn_color"}
     - else
       = link_to "group", group_path(current_user.groups.first),{class: "ml-3 header_btn_color"}
-
+    = link_to "profile", user_path(current_user), {class: "ml-3 header_btn_color"}
   .pull-left
 .space_header
