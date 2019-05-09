@@ -7,8 +7,38 @@
   = form_for @group do |f|
     .group__new--name
       = f.text_field :name,placeholder: "グループ名を入力してください",class: "group__new--name-input"
-      = f.hidden_field :user_ids,value: current_user.id
-    .group__new--submit
-      = f.submit "送信",class: "group__new--submit-button"
+    - if @group.id.nil?
+      = f.hidden_field :user_ids, value: current_user.id
 
+    - unless @group.id.nil?
+      .group__new--invitation-users
+        .group__new--invitation-users-title
+          招待済みユーザーを追加
+      - @users.each do |user|
+        .group__new--invitation-user
+          .group__new--invitation-user-name
+            = user.nickname
+          .group__new--invitation-user-input
+          .group__new--invitation-user-button{user_id: user.id, user_name: user.nickname}
+            追加
+    .group__new--group-users
+      .group__new--group-users-title
+        グループメンバー
+      - @group.users.each do |user|
+        .group__new--group-user
+          .group__new--group-user-name
+            = user.nickname
+          .group__new--group-user-input
+            = f.hidden_field :user_ids,multiple: true,value: user.id
+          .group__new--group-user-button{user_id: user.id, user_name: user.nickname, user_group_id: user.user_groups.first.id}
+            削除
+    .group__new--delete-users
+      .group__new--delete-users-title
+        削除するメンバー
+
+    .group__new--submit
+      - if @group.id.nil?
+        = f.submit "登録",class: "group__new--submit-button"
+      - else
+        = f.submit "更新",class: "group__new--submit-button"
 

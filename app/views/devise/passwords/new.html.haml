@@ -6,6 +6,7 @@
       = f.label :メールアドレス
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control"
+
     .actions
       = f.submit "Send me reset password instructions",class: "btn btn-primary"
   = render "devise/shared/links"

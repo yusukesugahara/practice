@@ -53,4 +53,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
     host = 'samplehost'
 
+  host = 'localhost:3000'
+  Rails.application.routes.default_url_options[:host] = host
+
 end
