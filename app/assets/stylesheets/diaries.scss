@@ -42,13 +42,21 @@
   }
   &__text{
   }
+  &__square--title{
+    margin-top: 8px;
+  }
+  &__square--text{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px;
+  }
   &__plan--title{
     margin-top: 8px;
   }
   &__plan--text{
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 2px;
+    padding: 4px;
     height: 100px;
   }
   &__diary--title{
@@ -57,8 +65,8 @@
   &__diary--text{
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 2px;
-    height: 420px;
+    padding: 4px;
+    height: 360px;
   }
   &__new{
     &--card{

@@ -1,4 +1,4 @@
-json.email  @comment.user.email
+json.nickname  @comment.user.nickname
 json.text  @comment.text
 json.diary_id  @comment.diary_id
 json.comment_id  @comment.id

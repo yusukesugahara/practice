@@ -42,7 +42,7 @@ class SquaresController < ApplicationController
 
   private
   def squares_set
-    @squares = Square.where(user_id: current_user.id)
+    @squares = Square.where(user_id: current_user.id).order("updated_at DESC")
   end
 
   def square_params

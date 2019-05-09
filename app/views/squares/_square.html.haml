@@ -17,6 +17,5 @@
             - clumn = "#{num}_#{cnum}"
             = f.text_area("#{clumn}", placeholder: @square.send(num+"_"+cnum), class: "square_child-input")
   = f.submit "保存",class: "btn btn-danger"
-  - unless @square.id.nil?
+  - if !@square.id.nil? && @square.diaries.first.nil?
     = link_to "削除","/squares/#{@square.id}",method: 'delete',class: "btn btn-danger"
-    = link_to "新規作成", new_square_path,class: "btn btn-danger"

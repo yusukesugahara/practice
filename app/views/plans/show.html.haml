@@ -12,7 +12,7 @@
       - @diaries.each do |diary|
         = link_to("",class: "side_bar__link") do
           .side_bar__link--title
-            = diary.user.email
+            = diary.user.nickname
           .side_bar__dates
             .side_bar__date--create
               = timestamp_created(diary)
