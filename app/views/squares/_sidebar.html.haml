@@ -2,10 +2,6 @@
   = link_to(new_square_path) do
     .side_bar__button
       新規作成
-  - unless @square.id.nil? then
-    = link_to("/squares/#{@square.id}",method: 'delete') do
-      .side_bar__button
-        削除
   - if @squares.length != 0 then
     .side_bar__title
       目標一覧

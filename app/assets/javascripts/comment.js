@@ -3,7 +3,7 @@ $(function(){
     var html = `
     <div class="diary__comment--box diary__comment--box-${comment.comment_id}">
       <div class="diary__comment--name">
-        ${comment.email}
+        ${comment.nickname}
       </div>
     <div class="diary__comment--text">
       ${comment.text}
