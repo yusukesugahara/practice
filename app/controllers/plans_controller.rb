@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!
-  before_action :plans_set, only: [:index,:show,:destroy]
+  before_action :plans_set
 
   def index
   end
@@ -10,9 +10,13 @@ class PlansController < ApplicationController
   end
 
   def create
-    Plan.create(plan_params)
-    redirect_to plans_path
-
+    @plan = Plan.new(plan_params)
+    @group = Group.find(params[:group_id])
+    if @plan.save
+      redirect_to group_plans_path(@plan.group)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,18 +24,22 @@ class PlansController < ApplicationController
   end
 
   def update
-    plan = Plan.find(params[:id])
-    if plan.id == current_user.id
-      plan.update(plan_params)
+    @plan = Plan.find(params[:id])
+    if @plan.update(plan_params)
+      redirect_to group_plans_path(@group)
+    else
+      render :edit
     end
   end
 
   def destroy
     plan = Plan.find(params[:id])
-    if current_user.id == plan.user_id
+    if current_user.groups.first.id == plan.group.id
       plan.delete
+    else
+      render :back
     end
-    redirect_to plans_path
+    redirect_to group_plans_path(@group)
   end
 
   def show
@@ -42,11 +50,11 @@ class PlansController < ApplicationController
 
   private
   def plans_set
-    @plans = Plan.where(user_id: current_user.id)
+    @plans = Plan.where(group_id: current_user.group_ids).page(params[:page]).per(14).order("created_at DESC")
+    @group = Group.find(current_user.groups.first)
   end
 
   def plan_params
-    params.require(:plan).permit(:name,:date,:text).merge(user_id: current_user.id)
+    params.require(:plan).permit(:name,:date,:text,:group_id).merge(group_id: params[:group_id])
   end
-
 end

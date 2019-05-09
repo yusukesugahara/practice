@@ -3,7 +3,7 @@
 
 .plans
   .side_bar
-    = link_to new_plan_path do
+    = link_to new_group_plan_path(current_user.groups.first) do
       .side_bar__button
         新規作成
     .side_bar__title
@@ -39,7 +39,7 @@
             .plan_show__card--button
               削除
         - else
-          = link_to plan_path(@plan) do
+          = link_to group_plan_path(current_user.groups.first,@plan) do
             .plan_show__card--button
               日記一覧
 

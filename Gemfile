@@ -35,6 +35,8 @@ gem 'erb2haml'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise_invitable'
+gem 'jc-validates_timeliness'
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
