@@ -16,11 +16,14 @@ class PlansController < ApplicationController
   end
 
   def edit
-
+    @plan = Plan.find(params[:id])
   end
 
   def update
-
+    plan = Plan.find(params[:id])
+    if plan.id == current_user.id
+      plan.update(plan_params)
+    end
   end
 
   def destroy

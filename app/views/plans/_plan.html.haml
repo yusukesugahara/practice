@@ -13,10 +13,14 @@
     = link_to new_plan_diary_path(plan) do
       .plan__card--button
         日記作成
+    %br
     - if plan.diaries.length == 0 then
       = link_to "/plans/#{plan.id}",method: "delete" do
         .plan__card--button
           削除
+      = link_to edit_plan_path(plan) do
+        .plan__card--button
+          編集
     - else
       = link_to plan_path(plan) do
         .plan__card--button
