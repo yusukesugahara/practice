@@ -1,5 +1,6 @@
-= form_for @plan do |f|
+= form_for [@group,@plan] do |f|
   .plan__new
+    = render "shared/error_messages",model: f.object
     .plan__new--form
       .plan__new--title
         = f.label "名前"

@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 20190504075248) do
   end
 
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.integer  "group_id"
     t.date     "date"
     t.string   "name"
     t.text     "text",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["user_id"], name: "index_plans_on_user_id", using: :btree
+    t.index ["group_id"], name: "index_plans_on_group_id", using: :btree
   end
 
   create_table "squares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20190504075248) do
   add_foreign_key "diaries", "plans"
   add_foreign_key "diaries", "squares"
   add_foreign_key "diaries", "users"
-  add_foreign_key "plans", "users"
+  add_foreign_key "plans", "groups"
   add_foreign_key "squares", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"

@@ -14,11 +14,13 @@ class DiariesController < ApplicationController
   end
 
   def create
-    diary = Diary.new(diary_params)
-    if diary.user_id == current_user.id
-      Diary.create(diary_params)
+    @diary = Diary.new(diary_params)
+    if @diary.save
+      redirect_to group_plan_path(current_user.groups.first,@diary.plan)
+    else
+      render :new
     end
-    redirect_to plans_path
+
   end
 
   def edit

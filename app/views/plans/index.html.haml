@@ -3,7 +3,7 @@
 
 .plans
   .side_bar
-    = link_to new_plan_path do
+    = link_to new_group_plan_path(current_user.groups.first) do
       .side_bar__button
         新規作成
     .side_bar__title
@@ -11,15 +11,14 @@
     .side_bar__list
       - if !@plans.length.nil?
         - @plans.each do |plan|
-          = link_to("",class: "side_bar__link") do
+          = link_to(edit_group_plan_path(plan.group,plan),class: "side_bar__link") do
             .side_bar__link--title
               = plan.name
             .side_bar__dates
               .side_bar__date--create
-                = timestamp_created(plan)
-              .side_bar__date--update
-                = timestamp_updated(plan)
+                = plan.date
 
   - if !@plans.nil?
     .plans__zone
+      = paginate @plans
       = render @plans
