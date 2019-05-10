@@ -105,13 +105,27 @@
       font-size: 20px;
       font-weight: 600;
     }
+    &--box{
+      width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+    }
+    &--flex-box{
+      display: flex;
+      margin-bottom: 20px;
+    }
     &--name{
       margin-left: 20px;
     }
     &--sub-title{
+      width: 130px;
+      font-weight: 600;
       font-size:18px;
+      text-align: right;
     }
     &--user{
+      font-size:18px;
       margin-left: 20px;
 
     }

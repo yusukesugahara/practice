@@ -8,7 +8,7 @@
       .plan__card--text-title
         練習メニュー
       .plan__card--text-text
-        = plan.text
+        = simple_format(plan.text)
   .plan__card--buttons
     = link_to new_plan_diary_path(plan) do
       .plan__card--button

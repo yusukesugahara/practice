@@ -17,6 +17,7 @@
               = timestamp_updated(diary)
 
   .diary__cards
+    = paginate @diaries
     = render @diaries
 
 

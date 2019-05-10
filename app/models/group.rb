@@ -4,4 +4,6 @@ class Group < ApplicationRecord
   has_many :plans
 
   accepts_nested_attributes_for :user_groups, allow_destroy: true
+
+  validates_presence_of :name
 end
