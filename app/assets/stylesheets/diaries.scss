@@ -22,6 +22,12 @@
     &--body{
       @include size(630px,auto);
     }
+    &--flex-box{
+      display: flex;
+    }
+    &--icon{
+      color: #ea352d;
+    }
     &--buttons{
       margin-top: auto;
       @include size(48px,400px);

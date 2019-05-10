@@ -1,4 +1,4 @@
-= form_for [@diary] do |f|
+= form_for [@plan,@diary] do |f|
   .diary__new
     = render "shared/error_messages",model: f.object
     .diary__new--card
@@ -18,4 +18,4 @@
       .diary__new--text-text
         = f.text_area :text, placeholder: "練習で発見した課題や問題点を書き、次の練習で改善できるように解決策を書き出しましょう。",class: "diary__new--text-input"
 
-      = f.submit "送信",action: "/diaries",method: :post,class: "diary__new--submit"
+      = f.submit "送信",class: "diary__new--submit"
