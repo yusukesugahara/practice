@@ -7,3 +7,25 @@
       .side_bar__button
         アカウント編集
 
+  .user__show
+    .user__show--title
+      ユーザー情報
+    .user__show--box
+      .user__show--flex-box
+        .user__show--sub-title
+          .fas.fa-user-alt
+          ユーザー名 :
+        .user__show--text
+          = @user.nickname
+      .user__show--flex-box
+        .user__show--sub-title
+          .far.fa-envelope
+          メールアドレス :
+        .user__show--text
+          = @user.email
+      .user__show--flex-box
+        .user__show--sub-title
+          .fas.fa-users
+          グループ名 :
+        .user__show--text
+          = @user.groups.first.name

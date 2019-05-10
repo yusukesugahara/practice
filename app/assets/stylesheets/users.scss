@@ -1,3 +1,40 @@
 .user__main{
   display: flex;
 }
+
+.user__show{
+  margin: 20px;
+  &--title{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &--box{
+    width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  &--flex-box{
+    display: flex;
+    margin-bottom: 20px;
+  }
+  &--name{
+    margin-left: 10px;
+  }
+  &--sub-title{
+    width: 150px;
+    font-weight: 600;
+    font-size:16px;
+    text-align: right;
+  }
+  &--user{
+    font-size:16px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  &--text{
+    font-size:16px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+}
