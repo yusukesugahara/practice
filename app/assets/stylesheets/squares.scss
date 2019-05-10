@@ -39,7 +39,6 @@
 .square{
   margin-top: 10px;
   height: auto;
-
   width: 643px;
 }
 
@@ -64,13 +63,14 @@
   border: 1px solid #337ab7;
   padding: 2px;
   @include size(70px,70px);
-
+  font-size:12px;
   resize: none;
 }
 .square_child-text{
   border: 1px solid #337ab7;
   padding: 2px;
   @include size(70px,70px);
+  font-size:12px;
 }
 
 .square__button--submit{

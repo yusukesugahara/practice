@@ -3,9 +3,11 @@
     .plan__card--title
       = plan.name
     .plan__card--date
-      = plan.date
+      .far.fa-clock
+        = plan.date
     .plan__card--text
       .plan__card--text-title
+        .fas.fa-columns.plan__card--icon
         練習メニュー
       .plan__card--text-text
         = simple_format(plan.text)

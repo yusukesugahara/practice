@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     resources :plans
   end
   resources :plans, only: [] do
-   resources :diaries, only: [:new, :create]
+   resources :diaries, only: [:new, :create, :update]
   end
-  resources :diaries, only: [:index, :edit, :update, :destroy] do
+  resources :diaries, only: [:index, :edit, :destroy] do
     resources :comments, only: [:create ,:destroy]
   end
 

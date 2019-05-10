@@ -1,21 +1,26 @@
 .diary__card_body
   .diary__card{id: "diary__#{diary.id}"}
     .diary__card--body
-      .diary__title
-        = diary.plan.name
-        <
-        = diary.user.nickname
-        >
+      .diary__card--flex-box
+        .diary__title
+          = diary.plan.name
+          &nbsp;&nbsp;&nbsp;
+        .diary__square--title
+          .fas.fa-user-alt
+          = diary.user.nickname
       .diary__text
         .diary__square--title
+          .fas.fa-tasks.diary__card--icon
           目標
         .diary__square--text
           = diary.square.name
         .diary__plan--title
+          .fas.fa-columns.diary__card--icon
           練習メニュー
         .diary__plan--text
           = simple_format(diary.plan.text)
         .diary__diary--title
+          .fas.fa-book.diary__card--icon
           練習日誌
         .diary__diary--text
           = simple_format(diary.text)
