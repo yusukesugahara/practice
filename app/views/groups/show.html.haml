@@ -6,14 +6,18 @@
   .group__show
     .group__show--title
       グループ情報
-    .group__show--sub-title
-      グループ名
-    .group__show--name
-
-      = @group.name
-    .group__show--sub-title
-      ユーザー
-    .group__show--user
-      - @group.users.each do |user|
-        ・
-        = user.nickname
+    .group__show--box
+      .group__show--flex-box
+        .group__show--sub-title
+          .fas.fa-users
+          グループ名 :
+        .group__show--name
+          = @group.name
+      .group__show--flex-box
+        .group__show--sub-title
+          .fas.fa-user-alt
+          メンバー :
+        .group__show--user
+          - @group.users.each do |user|
+            = user.nickname
+            %br

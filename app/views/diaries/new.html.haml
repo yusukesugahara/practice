@@ -1,24 +1,4 @@
 = render "shared/header"
 = render "shared/sub_header"
 
-
-= form_for [@plan,@diary] do |f|
-  .diary__new
-    .diary__new--card
-      .diary__new--card-title
-        日記
-      .diary__new--square
-        目標選択
-        = f.collection_select :square_id, Square.where(user_id: current_user.id),:id ,:name,{placeholder:"選択してください"},class: "diary__new--square-input"
-      .diary__new--plan-title
-        練習メニュー
-      .diary__new--plan-text
-        = @plan.date
-        %br
-        = @plan.text
-      .diary__new--text-title
-        = f.label "日記内容"
-      .diary__new--text-text
-        = f.text_area :text, placeholder: "練習で発見した課題や問題点を書き、次の練習で改善できるように解決策を書き出しましょう。",class: "diary__new--text-input"
-
-      = f.submit "送信",action: "/diaries",method: :post,class: "diary__new--submit"
+= render "diary_form"

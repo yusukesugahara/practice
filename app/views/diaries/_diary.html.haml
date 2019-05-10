@@ -14,11 +14,11 @@
         .diary__plan--title
           練習メニュー
         .diary__plan--text
-          = diary.plan.text
+          = simple_format(diary.plan.text)
         .diary__diary--title
           練習日誌
         .diary__diary--text
-          = diary.text
+          = simple_format(diary.text)
     .diary__card--buttons
       = link_to edit_diary_path(diary) do
         .diary__card--button
@@ -36,7 +36,7 @@
           .diary__comment--name
             = comment.user.nickname
           .diary__comment--text
-            = comment.text
+            = simple_format(comment.text)
           .diary__comment--destroy{value: "/diaries/#{diary.id}/comments/#{comment.id}"}
             削除
           %hr.diary__comment--line
