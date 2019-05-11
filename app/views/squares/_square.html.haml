@@ -1,9 +1,9 @@
 - box = ["one","two","three","four","zero","five","six","seven","eight"]
 
 = form_for @square do |f|
-  name:
-  = f.text_field("name" , placeholder: "#{@square.name}", class: "square__name")
-  %br
+  .square__name--title
+    name:
+    = f.text_field("name" , placeholder: "#{@square.name}", class: "square__name")
   - box.each do |num|
     .square_parent{class: "suquare_#{num}"}
       - box.each do |cnum|
