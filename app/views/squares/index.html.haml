@@ -6,5 +6,6 @@
     = render "sidebar"
   .square__main--square
     .square
-      = timestamp_create_update(@square)
+      .square__main--date
+        = timestamp_create_update(@square)
       = render "square"

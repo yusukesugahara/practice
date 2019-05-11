@@ -31,7 +31,10 @@
   &--square{
     @include size(785px,auto);
     margin: 10px;
-
+  }
+  &--date{
+    font-weight: 600;
+    font-size: 16px;
   }
 }
 
@@ -47,6 +50,11 @@
   border: 1px solid #337ab7;
   margin: 8px 0;
   padding: 0 4px;
+}
+
+.square__name--title{
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .square_parent{
@@ -90,3 +98,4 @@
   background-color: #dc3545;
   color: #fff;
 }
+

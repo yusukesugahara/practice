@@ -12,9 +12,7 @@
             = diary.plan.name
           .side_bar__dates
             .side_bar__date--create
-              = timestamp_created(diary)
-            .side_bar__date--update
-              = timestamp_updated(diary)
+              = diary.plan.date
 
   .diary__cards
     = paginate @diaries
