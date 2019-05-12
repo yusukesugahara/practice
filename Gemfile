@@ -65,3 +65,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
 end
+
+group :production do
+  gem 'pg'
+end
