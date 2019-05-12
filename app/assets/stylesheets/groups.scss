@@ -78,7 +78,7 @@
     }
     .group__new--delete-users{
       margin: 20px 0;
-      .group__new--delete-users-title{
+      &-title{
         font-size: 18px;
         font-weight: 600;
       }
@@ -88,13 +88,13 @@
       @include size(40px, 300px);
       line-height: 40px;
       border-bottom: 1px solid #337ab7;
-      .group__new--delete-user-name{
+      &-name{
 
       }
-      .group__new--delete-user-input{
+      &-input{
         margin-left: auto;
       }
-      .group__new--delete-user-button{
+      &-button{
         color: #38aef0;
       }
     }

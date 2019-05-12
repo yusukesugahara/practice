@@ -33,6 +33,12 @@
       %br/
       = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
     .form-group
+      = f.label :アイコン
+      = f.file_field :image, autocomplete: "icon",class: "form-control form-image",maxlength: "10"
+      .form-group--image-filed
+        .far.fa-image.form-group--image-icon
+
+    .form-group
       = f.label :現在のパスワード
       %i (ユーザー情報の変更のため入力してください)
       %br/

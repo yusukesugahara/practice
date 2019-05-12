@@ -1,3 +1,8 @@
+@mixin size($height,$width){
+  height: $height;
+  width: $width;
+}
+
 .user__main{
   display: flex;
 }
@@ -26,6 +31,11 @@
     font-weight: 600;
     font-size:16px;
     text-align: right;
+  }
+  &--image-tag{
+    margin-left: 20px;
+    @include size(100px, 100px);
+    border-radius: 50%;
   }
   &--user{
     font-size:16px;
