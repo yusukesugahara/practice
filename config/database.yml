@@ -54,8 +54,6 @@ test:
 #   password: <%= ENV['PRACTICE_DATABASE_PASSWORD'] %>
 
 production:
-
-
   <<: *default
   adapter: postgresql
   encoding: unicode
