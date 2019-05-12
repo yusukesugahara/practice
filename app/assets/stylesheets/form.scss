@@ -16,6 +16,23 @@
   margin: 10px;
 }
 
+.form-image{
+  display: none;
+}
+
 .form-group-text{
   font-size: 12px;
+}
+
+.form-group--image-filed{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  @include size(240px,240px);
+}
+
+.form-group--image-icon{
+  font-size: 200px;
+  opacity: 0.5;
+
 }

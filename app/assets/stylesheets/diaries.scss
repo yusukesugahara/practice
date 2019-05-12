@@ -14,7 +14,7 @@
     float: left;
   }
   &__card{
-    @include size(720px,520px);
+    @include size(740px,520px);
     padding: 20px;
     margin: 0 8px 20px 0;
     border-radius: 4px;
@@ -29,7 +29,7 @@
       color: #ea352d;
     }
     &--buttons{
-      margin-top: auto;
+      margin-top: 25px;
       @include size(48px,400px);
       display: flex;
     }
@@ -44,12 +44,29 @@
     }
   }
   &__title{
+    margin-top:2px;
+    margin-left: 15px;
     font-size: 25px;
+    line-height: 10px;
   }
   &__text{
   }
   &__square--title{
     margin-top: 8px;
+  }
+  &__user--name{
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: -3px;
+  }
+  &__user--image-icon{
+    @include size(50px,50px);
+    border-radius: 50px;
+  }
+  &__plan-date{
+    margin-top: 3px;
+    margin-left: 15px;
   }
   &__square--text{
     border: 1px solid #ccc;
@@ -73,6 +90,9 @@
     border-radius: 4px;
     padding: 4px;
     height: 360px;
+  }
+  &__flex-box{
+    display: flex;
   }
   &__new{
     &--card{
@@ -144,6 +164,15 @@
   &--box{
   }
   &--name{
+    margin-left: 5px;
+  }
+  &--user{
+     display: flex;
+  }
+  &--user-image{
+    @include size(40px,40px);
+    border-radius: 50%;
+    margin-bottom: 5px;
   }
   &--text{
     padding: 2px;

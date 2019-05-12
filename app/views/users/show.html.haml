@@ -19,6 +19,11 @@
           = @user.nickname
       .user__show--flex-box
         .user__show--sub-title
+          ユーザーアイコン :
+        .user__show--image
+          = image_tag(@user.image.url, class: "user__show--image-tag")
+      .user__show--flex-box
+        .user__show--sub-title
           .far.fa-envelope
           メールアドレス :
         .user__show--text
@@ -27,5 +32,6 @@
         .user__show--sub-title
           .fas.fa-users
           グループ名 :
-        .user__show--text
-          = @user.groups.first.name
+        - unless @user.groups.first.nil?
+          .user__show--text
+            = @user.groups.first.name

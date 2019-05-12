@@ -23,6 +23,12 @@
         (10 文字まで)
       %br/
       = f.text_field :nickname, autocomplete: "nickname",class: "form-control",maxlength: "10"
+    .form-group
+      = f.label :アイコン
+      = f.file_field :image, autocomplete: "icon",class: "form-control form-image",maxlength: "10"
+      .form-group--image-filed
+        .far.fa-image.form-group--image-icon
+
     = f.submit "登録",class: "btn btn-primary"
   .login_btn
     = render "devise/shared/links"

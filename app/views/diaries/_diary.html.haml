@@ -2,12 +2,19 @@
   .diary__card{id: "diary__#{diary.id}"}
     .diary__card--body
       .diary__card--flex-box
-        .diary__title
-          = diary.plan.name
-          &nbsp;&nbsp;&nbsp;
+        .diary__flex-box
+          .diary__user--image
+            = image_tag(diary.user.image.url,class: "diary__user--image-icon");
+          .diary__user
+            .diary__user--name
+              = diary.user.nickname
+            .diary__title
+              = diary.plan.name
+              &nbsp;&nbsp;&nbsp;
+            .diary__plan-date
+              = diary.plan.date
         .diary__square--title
-          .fas.fa-user-alt
-          = diary.user.nickname
+
       .diary__text
         .diary__square--title
           .fas.fa-tasks.diary__card--icon
@@ -38,8 +45,11 @@
     .diary__comment-body
       - diary.comments.each do |comment|
         .diary__comment--box{class: "diary__comment--box-#{comment.id}"}
-          .diary__comment--name
-            = comment.user.nickname
+          .diary__comment--user
+            .diary__comment--user-image
+              = image_tag(comment.user.image.url, class: "diary__comment--user-image")
+            .diary__comment--name
+              = comment.user.nickname
           .diary__comment--text
             = simple_format(comment.text)
           .diary__comment--destroy{value: "/diaries/#{diary.id}/comments/#{comment.id}"}

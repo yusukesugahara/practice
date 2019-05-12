@@ -37,6 +37,8 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'jc-validates_timeliness'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

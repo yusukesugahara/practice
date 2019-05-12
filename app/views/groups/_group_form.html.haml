@@ -21,20 +21,20 @@
           .group__new--invitation-user-input
           .group__new--invitation-user-button{user_id: user.id, user_name: user.nickname}
             追加
-    .group__new--group-users
-      .group__new--group-users-title
-        グループメンバー
-      - @group.users.each do |user|
-        .group__new--group-user
-          .group__new--group-user-name
-            = user.nickname
-          .group__new--group-user-input
-            = f.hidden_field :user_ids,multiple: true,value: user.id
-          .group__new--group-user-button{user_id: user.id, user_name: user.nickname, user_group_id: user.user_groups.first.id}
-            削除
-    .group__new--delete-users
-      .group__new--delete-users-title
-        削除するメンバー
+      .group__new--group-users
+        .group__new--group-users-title
+          グループメンバー
+        - @group.users.each do |user|
+          .group__new--group-user
+            .group__new--group-user-name
+              = user.nickname
+            .group__new--group-user-input
+              = f.hidden_field :user_ids,multiple: true,value: user.id
+            .group__new--group-user-button{user_id: user.id, user_name: user.nickname, user_group_id: user.user_groups.first.id}
+              削除
+      .group__new--delete-users
+        .group__new--delete-users-title
+          削除するメンバー
 
     .group__new--submit
       - if @group.id.nil?
