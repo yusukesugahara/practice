@@ -92,7 +92,11 @@ body{
     margin-bottom: -2px;
   }
   &__link--title{
+    width: 110px;
     margin-right: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__dates{
     font-size: 10px;

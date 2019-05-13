@@ -8,11 +8,11 @@
           .diary__user
             .diary__user--name
               = diary.user.nickname
-            .diary__title
-              = diary.plan.name
-              &nbsp;&nbsp;&nbsp;
-            .diary__plan-date
-              = diary.plan.date
+            .diary__flex-box
+              .diary__title
+                = diary.plan.name
+              .diary__plan-date
+                = diary.plan.date
         .diary__square--title
 
       .diary__text
