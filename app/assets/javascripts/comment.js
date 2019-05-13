@@ -2,16 +2,21 @@ $(function(){
   function buildCommentHTML(comment){
     var html = `
     <div class="diary__comment--box diary__comment--box-${comment.comment_id}">
-      <div class="diary__comment--name">
-        ${comment.nickname}
-      </div>
-    <div class="diary__comment--text">
-      ${comment.text}
-    </div>
-    <div class="diary__comment--destroy" value="/diaries/${comment.diary_id}/comments/${comment.comment_id}">
+      <div class="diary__comment--user">
+        <div class="diary__comment--user-image">
+          <img class="diary__comment--user-image" src="${comment.image_url}" alt="Mig">
+          </div>
+          <div class="diary__comment--name">
+          ${comment.nickname}
+          </div>
+        </div>
+        <div class="diary__comment--text">
+          ${comment.text}
+        </div>
+      <div class="diary__comment--destroy" value="/diaries/${comment.diary_id}/comments/${comment.comment_id}">
       削除
-    </div>
-    <hr class="diary__comment--line">
+      </div>
+      <hr class="diary__comment--line">
     </div>
     `
     return html;

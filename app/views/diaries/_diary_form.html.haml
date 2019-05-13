@@ -12,7 +12,7 @@
       .diary__new--plan-text
         = @plan.date
         %br
-        = @plan.text
+        = simple_format(@plan.text)
       .diary__new--text-title
         = f.label "日記内容"
       .diary__new--text-text

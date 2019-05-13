@@ -15,12 +15,13 @@
         .group__new--invitation-users-title
           招待済みユーザーを追加
       - @users.each do |user|
-        .group__new--invitation-user
-          .group__new--invitation-user-name
-            = user.nickname
-          .group__new--invitation-user-input
-          .group__new--invitation-user-button{user_id: user.id, user_name: user.nickname}
-            追加
+        - unless user.nickname == ""
+          .group__new--invitation-user
+            .group__new--invitation-user-name
+              = user.nickname
+            .group__new--invitation-user-input
+            .group__new--invitation-user-button{user_id: user.id, user_name: user.nickname}
+              追加
       .group__new--group-users
         .group__new--group-users-title
           グループメンバー

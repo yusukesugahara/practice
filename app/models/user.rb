@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable,invite_for: 24.hours
 
+  mount_uploader :image, ImageUploader
+
   validates :nickname ,presence: true
 
   has_many :squares, dependent: :destroy
