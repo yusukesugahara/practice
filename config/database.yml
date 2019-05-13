@@ -52,3 +52,10 @@ production:
   database: practice_production
   username: practice
   password: <%= ENV['PRACTICE_DATABASE_PASSWORD'] %>
+
+
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
