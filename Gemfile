@@ -39,6 +39,7 @@ gem 'jc-validates_timeliness'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -70,6 +71,5 @@ end
 
 group :production do
   gem 'pg'
-  gem 'fog'
 end
 
