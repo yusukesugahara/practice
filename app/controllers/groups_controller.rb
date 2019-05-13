@@ -1,13 +1,18 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @group = Group.new
   end
 
   def create
-    group = Group.create(group_new_params)
-    UserGroup.create(group_id: group.id,user_id: current_user.id)
-    redirect_to action: 'show',id: group.id
+    @group = Group.new(group_new_params)
+    if @group.save
+      UserGroup.create(group_id: @group.id,user_id: current_user.id)
+      redirect_to action: 'show',id: @group.id
+    else
+      render :new
+    end
   end
 
   def edit
@@ -16,11 +21,17 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(params[:id])
-    unless group.users.where(user_id: current_user.id).nil?
-      group.update(group_params)
+    @group = Group.find(params[:id])
+    unless @group.users.where(user_id: current_user.id).nil?
+      if @group.update(group_params)
+        redirect_to action: 'show',id: @group.id
+      else
+        render :edit
+      end
+    else
+      render :edit
     end
-    redirect_to action: 'show',id: group.id
+
   end
 
   def show
