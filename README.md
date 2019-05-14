@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Practiceとは？
+　　高校と大学でスポーツを行なっていた経験から作成したアプリケーションです。
+　　だた運動するだけでなく、頭を使って目標達成するにはどうしたらいいか考えることで最短で目標達成　することができるアプリケーションです。
