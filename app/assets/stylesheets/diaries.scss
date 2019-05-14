@@ -81,8 +81,8 @@
     border-radius: 4px;
     padding: 4px;
     height: 100px;
-    white-space:nowrap;
-    overflow: scroll;
+    overflow-y: scroll;
+    word-wrap: break-word;
   }
   &__diary--title{
     margin-top: 8px;
@@ -92,8 +92,8 @@
     border-radius: 4px;
     padding: 4px;
     height: 360px;
-    white-space:nowrap;
-    overflow: scroll;
+    overflow-y: scroll;
+    word-wrap: break-word;
   }
   &__flex-box{
     display: flex;
@@ -183,6 +183,8 @@
     border-radius: 4px;
     width: 478px;
     border: 1px solid #aaa;
+    overflow-y: scroll;
+    word-wrap: break-word;
   }
   &--line{
     color: #aaa;
