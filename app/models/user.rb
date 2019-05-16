@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :user_groups, dependent: :destroy
   has_many :diaries, dependent: :destroy
 
-  validates :nickname ,presence: true
-
+  validates_presence_of :nickname
+  validates :nickname,  length: { maximum: 20 }
 end
