@@ -5,12 +5,12 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  validates :nickname ,presence: true
-
   has_many :squares, dependent: :destroy
   has_many :plan, dependent: :destroy
   has_many :groups, through: :user_groups
   has_many :user_groups, dependent: :destroy
   has_many :diaries, dependent: :destroy
+
+  validates :nickname ,presence: true
 
 end

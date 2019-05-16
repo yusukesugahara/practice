@@ -7,7 +7,7 @@ describe Square do
   describe '#create' do
     it "is valid" do
       plan = build(:plan, group_id: group.id)
-      expect(square).to be_valid
+      expect(plan).to be_valid
     end
   end
 end

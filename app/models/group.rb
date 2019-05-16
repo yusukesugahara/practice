@@ -6,4 +6,5 @@ class Group < ApplicationRecord
   accepts_nested_attributes_for :user_groups, allow_destroy: true
 
   validates_presence_of :name
+  validates :name,  length: { maximum: 20 }
 end
