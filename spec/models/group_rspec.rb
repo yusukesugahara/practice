@@ -1,18 +1,32 @@
 require 'rails_helper'
 
 describe Group do
+  context 'can save' do
+    describe '#create' do
+      it "is invalid" do
+        group = build(:group)
+        user_group = build(:user_group)
+        expect(group).to be_valid
+      end
 
-  describe '#create' do
-    it "is invalid" do
-      group = build(:group)
-      user_group = build(:user_group)
-      expect(group).to be_valid
+      it "is valid with a nickname that has less than 20 characters " do
+        group = build(:group, name: "aaaaaaaaaaaaaaaaaaaa")
+        expect(group).to be_valid
+      end
     end
-    it "is invalid" do
-      group = create(:group)
-      user = create(:user)
-      user_group = build(:user_group,user_id: user.id,group_id: group.id)
-      expect(user_group).to be_valid
+
+    context 'can not save' do
+      it 'is invalid without name' do
+        group = build(:group, name: "")
+        group.valid?
+        expect(group.errors[:name]).to include("を入力してください")
+      end
+
+      it "is invalid with a name that has more than 21 characters " do
+        group = build(:group, name: "aaaaaaaaaaaaaaaaaaaaa")
+        group.valid?
+        expect(group.errors[:name][0]).to include("以内で入力してください")
+      end
     end
   end
 end
