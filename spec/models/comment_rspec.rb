@@ -14,6 +14,11 @@ describe Diary do
         comment = build(:comment, user_id: user.id, diary_id: diary.id)
         expect(comment).to be_valid
       end
+
+      it "is valid with a text that has less than 1000 characters " do
+        comment = build(:comment, text: "a"*1000, user_id: user.id, diary_id: diary.id)
+        expect(comment).to be_valid
+      end
     end
 
     context 'can not save' do
@@ -36,6 +41,11 @@ describe Diary do
         expect(comment.errors[:diary_id]).to include("を入力してください")
       end
 
+      it "is invalid with a name that has more than 1001 characters " do
+        comment = build(:comment, text: "a"*1001, user_id: user.id, diary_id: diary.id)
+        comment.valid?
+        expect(comment.errors[:text][0]).to include("以内で入力してください")
+      end
 
     end
   end

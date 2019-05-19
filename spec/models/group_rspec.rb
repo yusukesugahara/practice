@@ -10,7 +10,7 @@ describe Group do
       end
 
       it "is valid with a nickname that has less than 20 characters " do
-        group = build(:group, name: "aaaaaaaaaaaaaaaaaaaa")
+        group = build(:group, name: "a"*20)
         expect(group).to be_valid
       end
     end
@@ -23,7 +23,7 @@ describe Group do
       end
 
       it "is invalid with a name that has more than 21 characters " do
-        group = build(:group, name: "aaaaaaaaaaaaaaaaaaaaa")
+        group = build(:group, name: "a"*21)
         group.valid?
         expect(group.errors[:name][0]).to include("以内で入力してください")
       end

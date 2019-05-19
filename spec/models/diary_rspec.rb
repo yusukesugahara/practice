@@ -12,6 +12,10 @@ describe Diary do
         diary = build(:diary, user_id: user.id,plan_id: plan.id, square_id: square.id)
         expect(diary).to be_valid
       end
+      it "is valid with a text that has less than 10000 characters " do
+        diary = build(:diary, text: "a"*10000, user_id: user.id,plan_id: plan.id, square_id: square.id)
+        expect(diary).to be_valid
+      end
     end
 
     context 'can not save' do
@@ -37,6 +41,12 @@ describe Diary do
         diary = build(:diary, plan_id: "")
         diary.valid?
         expect(diary.errors[:plan_id]).to include("を入力してください")
+      end
+
+      it "is invalid with a name that has more than 10001 characters " do
+        diary = build(:diary, text: "a"*10001, user_id: user.id,plan_id: plan.id, square_id: square.id)
+        diary.valid?
+        expect(diary.errors[:text][0]).to include("以内で入力してください")
       end
     end
   end
