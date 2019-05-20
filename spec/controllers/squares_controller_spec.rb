@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe SquaresController do
+
   let(:user) { create(:user) }
   let(:square) { create(:square,user_id: user.id)}
-
 
   describe 'GET #new' do
     before do

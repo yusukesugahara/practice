@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe UsersController do
-  let(:user) { create(:user) }
 
+  let(:user) { create(:user) }
 
   describe 'GET #show' do
     it "renders the :show template" do
