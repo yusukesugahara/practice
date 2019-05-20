@@ -88,5 +88,4 @@ Rails.application.configure do
   host = 'warm-falls-95935.herokuapp.com'
   Rails.application.routes.default_url_options[:host] = host
 
-
 end
