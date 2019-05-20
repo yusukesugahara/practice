@@ -50,8 +50,8 @@ class PlansController < ApplicationController
 
   private
   def plans_set
-    @plans = Plan.where(group_id: current_user.group_ids).page(params[:page]).per(14).order("created_at DESC")
-    @group = Group.find(current_user.groups.first)
+    @plans = Plan.where(group_id: params[:group_id]).page(params[:page]).per(14).order("created_at DESC")
+    @group = Group.find(params[:group_id])
   end
 
   def plan_params
