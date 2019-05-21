@@ -13,8 +13,9 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @group = Group.find(params[:group_id])
     if @plan.save
-      redirect_to group_plans_path(@plan.group)
+      redirect_to group_plans_path(@plan.group), notice:'予定が作成されました。'
     else
+      flash.now[:alert] = '予定の作成に失敗しました。'
       render :new
     end
   end
@@ -26,8 +27,9 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     if @plan.update(plan_params)
-      redirect_to group_plans_path(@group)
+      redirect_to group_plans_path(@group), notice:'予定が更新されました。'
     else
+      flash.now[:alert] = '予定の更新に失敗しました。'
       render :edit
     end
   end
@@ -36,10 +38,12 @@ class PlansController < ApplicationController
     plan = Plan.find(params[:id])
     if current_user.groups.first.id == plan.group.id
       plan.delete
+      redirect_to group_plans_path(@group), notice:'予定が削除されました。'
     else
+      flash.now[:alert] = '予定の削除に失敗しました。'
       render :back
     end
-    redirect_to group_plans_path(@group)
+
   end
 
   def show

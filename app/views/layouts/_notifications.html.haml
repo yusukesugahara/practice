@@ -1,0 +1,4 @@
+- unless flash.nil?
+  .notification
+    - flash.each do |key, value|
+      = content_tag :div, value, class: key

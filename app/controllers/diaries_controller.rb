@@ -16,8 +16,9 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     if @diary.save
-      redirect_to group_plan_path(current_user.groups.first,@diary.plan)
+      redirect_to group_plans_path(current_user.groups.first), notice:'日記が作成されました。'
     else
+      flash.now[:alert] = '日記の作成に失敗しました。'
       render :new
     end
   end
@@ -31,8 +32,9 @@ class DiariesController < ApplicationController
     @diary = Diary.find(params[:id])
     @plan = @diary.plan
     if @diary.update(diary_edit_params)
-      redirect_to group_plan_path(current_user.groups.first,@diary.plan)
+      redirect_to group_plans_path(current_user.groups.first), notice:'日記が更新されました。'
     else
+      flash.now[:alert] = '日記の更新に失敗しました。'
       render :edit
     end
   end
@@ -41,8 +43,11 @@ class DiariesController < ApplicationController
     diary = Diary.find(params[:id])
     if diary.user_id == current_user.id
       diary.destroy
+      redirect_to action: :index, notice:'日記が削除されました。'
+    else
+      flash.now[:alert] = '日記の削除に失敗しました。'
+      render :index
     end
-    redirect_to action: :index
   end
 
   private
