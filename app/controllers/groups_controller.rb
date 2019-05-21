@@ -9,8 +9,9 @@ class GroupsController < ApplicationController
     @group = Group.new(group_new_params)
     if @group.save
       UserGroup.create(group_id: @group.id,user_id: current_user.id)
-      redirect_to action: 'show',id: @group.id
+      redirect_to action: 'show',id: @group.id, notice:'グループが作成されました。'
     else
+      flash.now[:alert] = 'グループの作成に失敗しました。'
       render :new
     end
   end
@@ -24,11 +25,13 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     unless @group.users.where(user_id: current_user.id).nil?
       if @group.update(group_params)
-        redirect_to action: 'show',id: @group.id
+        redirect_to action: 'show',id: @group.id, notice:'グループが更新されました。'
       else
+        flash.now[:alert] = 'グループの更新に失敗しました。'
         render :edit
       end
     else
+      flash.now[:alert] = 'グループを作成してください。'
       render :edit
     end
 

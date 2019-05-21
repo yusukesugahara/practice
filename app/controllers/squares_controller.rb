@@ -15,8 +15,9 @@ class SquaresController < ApplicationController
   def create
     @square = Square.new(square_params)
     if @square.save
-      redirect_to "/squares/#{@square.id}"
+      redirect_to "/squares/#{@square.id}", notice:'目標が作成されました。'
     else
+      flash.now[:alert] = '目標の作成に失敗しました。'
       render :new
     end
   end
@@ -28,8 +29,9 @@ class SquaresController < ApplicationController
   def update
     @square = Square.find(params[:id])
     if @square.update(square_params)
-      redirect_to "/squares/#{params[:id]}"
+      redirect_to "/squares/#{params[:id]}", notice:'目標が更新されました。'
     else
+      flash.now[:alert] = '目標の削除に更新に失敗しました。'
       render :edit
     end
   end
@@ -38,9 +40,10 @@ class SquaresController < ApplicationController
     square = Square.find(params[:id])
     if current_user.id == square.user_id
       square.destroy
-      redirect_to squares_path
+      redirect_to squares_path, notice:'目標が削除されました。'
     else
-      redirect_to root_path
+      flash.now[:alert] = '目標の削除に失敗しました。'
+      render :index
     end
   end
 
