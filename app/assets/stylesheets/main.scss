@@ -145,7 +145,6 @@ body{
 
 .mypage_header{
   padding-top: 76px;
-
   color: white;
   position: fixed;
   top:0;
@@ -154,21 +153,9 @@ body{
   z-index: 100;
 }
 
-.notification {
-  .notice {
-    background-color: $light_blue;
-    color: $white;
-    text-align: center;
-  }
 
-  .alert {
-    background-color: $alert_orange;
-    color: $white;
-    text-align: center;
-  }
-}
 
-main{
+.main{
   &__image{
     height:100%;
     width: 100%;
@@ -211,11 +198,6 @@ main{
   }
 }
 
-
-
-
-
-
 .row{
     margin-top: 50px;
     margin-right:10px;
@@ -240,3 +222,16 @@ main{
   width:140px;
 }
 
+.notification {
+  .notice {
+    background-color: $light_blue;
+    color: $white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $alert_orange;
+    color: $white;
+    text-align: center;
+  }
+}
